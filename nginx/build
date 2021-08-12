@@ -9,7 +9,7 @@ docker cp conf/default.conf nginx_base:/etc/nginx/conf.d/
 docker cp ssl nginx_base:/etc/nginx/
 docker cp html nginx_base:/usr/share/nginx/
 docker commit nginx_base strahovka_nginx
-docker stop nginx_base
-docker rm nginx_base
+#docker stop nginx_base
+#docker rm nginx_base
 docker run --name strahovka_nginx -p 80:80 --network="strahovka" strahovka_nginx
 docker push ewolf34/strahovka-nginx
