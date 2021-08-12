@@ -1,0 +1,33 @@
+version: "3"
+services:
+  portainer:
+    container_name: strahovka_portainer
+    image: portainer/portainer-ce
+    volumes:
+      - portainer_data:/data
+    networks:
+      - strahovka
+    restart: always
+    ports:
+      - 8000:8000
+      - 9000:9000
+
+  nginx:
+    container_name: strahovka_nginx
+    image: ewolf34/strahovka-nginx
+    networks:
+      - strahovka
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - portainer
+
+networks:
+  strahovka:
+    driver: bridge
+
+volumes:
+  portainer_data:
+    external: false

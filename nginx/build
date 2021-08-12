@@ -11,5 +11,5 @@ docker cp html nginx_base:/usr/share/nginx/
 docker commit nginx_base strahovka_nginx
 docker stop nginx_base
 docker rm nginx_base
-docker run --name strahovka_nginx -p 81:80 --network="strahovka" strahovka_nginx
+docker run --name strahovka_nginx -p 80:80 --network="strahovka" strahovka_nginx
 docker push ewolf34/strahovka-nginx
